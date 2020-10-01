@@ -5,8 +5,12 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
 import java.util.Properties;
-import java.util.Random;
 import java.util.Scanner;
+import java.math.BigInteger;  
+import java.nio.charset.StandardCharsets; 
+import java.security.MessageDigest;  
+import java.security.NoSuchAlgorithmException;
+
 
 /**
  * Created by sunilpatil on 12/28/15. Modified by Denise Case on 10/29/2019.
@@ -58,19 +62,26 @@ public class CustomProducer {
 
   }
 
-  private static String createSentence() {
-    String[] subjects = { "Big Data", "Kafka", "Lambda architecture", "Kappa architecture", "Spark" };
-    String[] verbs = { "is", "was", "will be", "isn't", "will never be" };
-    String[] objs = { "hard", "easy", "fun", "challenging", "awesome" };
+  private static byte[] getSHA(String input) throws NoSuchAlgorithmException 
+    {  
+        // Static getInstance method is called with hashing SHA  
+        MessageDigest md = MessageDigest.getInstance("SHA-256");  
 
-    Random r = new Random();
+        return md.digest(input.getBytes(StandardCharsets.UTF_8));  
+    } 
 
-    int count = 3;
-    int minIndex = 0;
-    int maxIndex = 4;
+  private static String encryption(byte[] hash) {
+   BigInteger number = new BigInteger(1, hash);     // Convert byte array into signum representation  
 
-    int[] randoms = r.ints(count, minIndex, maxIndex).toArray();
+     StringBuilder hexString = new StringBuilder(number.toString(16));     // Convert message digest into hex value  
 
-    return subjects[randoms[0]] + " " + verbs[randoms[1]] + " " + objs[randoms[2]] + ".";
+   while (hexString.length() < 32)     // Pad with leading zeros 
+
+   {  
+       hexString.insert(0, '0');  
+   }  
+
+   return hexString.toString();  
   }
 }
+
