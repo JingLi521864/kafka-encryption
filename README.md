@@ -3,8 +3,9 @@
 In this project, CustomProducer.java asks input from the user and encrypts it to pass to CustomConsumer.java. The encryption part is done in the producer.
 
 ## Tools Used
-1. Apache Kafka
+1. [Apache Kafka](https://kafka.apache.org/)
 2. Zookeeper
+3. [SHA-256 Hash code by Geeks for Geeks](https://www.geeksforgeeks.org/sha-256-hash-in-java/#:~:text=In%20Cryptography%2C%20SHA%20is%20cryptographic,security)
 
 ## Prerequisities
 
