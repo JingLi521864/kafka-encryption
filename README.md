@@ -62,6 +62,8 @@ java -cp target/kafka-encryption-1.0-SNAPSHOT-jar-with-dependencies.jar edu.nwmi
 
 1. Type some messages for the Producer.
 1. Verify the messages are output by the Consumer.
+The wkrking communication should look like this:
+![Working Demo](https://raw.githubusercontent.com/spsaroj/kafka-encryption/master/workingsc.PNG)
 
 ## Repository
 
