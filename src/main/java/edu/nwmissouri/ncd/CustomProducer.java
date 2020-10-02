@@ -40,19 +40,11 @@ public class CustomProducer {
 
     org.apache.kafka.clients.producer.Producer producer = new KafkaProducer(configProperties);
 
-    // Make our own messages - create your custom logic here
-
-    for (int i = 1; i <= 10; i++) {
-      String message = createSentence();
-      ProducerRecord<String, String> rec = new ProducerRecord<String, String>(topicName, message);
-      producer.send(rec);
-    }
-
-    // still allow input from keyboard
+    // Custom Producer
 
     String line = in.nextLine();
     while (!line.equals("exit")) {
-      ProducerRecord<String, String> rec = new ProducerRecord<String, String>(topicName, line);
+      ProducerRecord<String, String> rec = new ProducerRecord<String, String>(topicName, encryption(getSHA(line)));   //call encryption method
       producer.send(rec);
       line = in.nextLine();
     }
