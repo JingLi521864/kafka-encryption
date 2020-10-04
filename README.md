@@ -56,6 +56,8 @@ Open a new PowerShell as Administrator in the root project folder, start the Pro
 
 ```PowerShell
 java -cp target/kafka-encryption-1.0-SNAPSHOT-jar-with-dependencies.jar edu.nwmissouri.ncd.CustomProducer test
+
+java -cp target/kafka-encryption-1.0-SNAPSHOT-jar-with-dependencies.jar edu.nwmissouri.ncd.CustomProducer1 test
 ```
 
 ## Test Communications
@@ -64,6 +66,7 @@ java -cp target/kafka-encryption-1.0-SNAPSHOT-jar-with-dependencies.jar edu.nwmi
 1. Verify the messages are output by the Consumer.
 1. The working communication should look like this:
 ![Working Demo](https://raw.githubusercontent.com/spsaroj/kafka-encryption/master/workingsc.PNG)
+![Working Demo of Producer1](https://raw.githubusercontent.com/spsaroj/kafka-encryption/master/customProducer1.PNG)
 
 ## Repository
 
